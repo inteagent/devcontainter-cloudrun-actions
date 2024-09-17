@@ -31,7 +31,7 @@ python3 main.py
 
 ## Set Up Your Cloud Run Service
 
-1. In the `devcontainer.json` file, update the `GOOGLE_CLOUD_PROJECT` and `CLOUD_RUN_SERVICE` environment variables with your GCP Project ID and the name of the Cloud Run service. You don't need to set up the service in advance, just pick a unique name.
+1. In the `devcontainer.json` file, update the `GOOGLE_CLOUD_PROJECT` and `CLOUD_RUN_SERVICE` environment variables with your GCP Project ID and the name of the Cloud Run service. You don't need to set up the service in advance, just pick a unique name. Rebuild the container.
 2. Open a new terminal in the dev container IDE and run the following command to authenticate with GCP:
 ```sh
 gcloud init
@@ -44,11 +44,11 @@ gcloud artifacts repositories create YOUR-GCR-ARTIFACTS-REPO
   --project YOUR-PROJECT-ID 
   --location us-central1
 ```
-5. Build the container image and push it to Artifact Registry by running the following command in the terminal:
+5. Build the container image and push it to Artifact Registry by running the following command:
 ```sh
 gcloud builds submit --config=cloudbuild.yaml --project YOUR-PROJECT-ID .
 ```
-6. Make sure your image appears in the Artifact Registry: https://console.cloud.google.com/artifacts?project=YOUR-PROJECT-ID
+6. Make sure your image appears in the [Artifact Registry](https://console.cloud.google.com/artifacts).
 7. Test your app locally by running the following command:
 ```sh
 pytest
