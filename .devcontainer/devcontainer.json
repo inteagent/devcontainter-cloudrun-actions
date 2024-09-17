@@ -1,0 +1,15 @@
+// Dev Container metadata reference:
+// https://containers.dev/implementors/json_reference/
+{
+	"name": 'my-devcontainer@3.11',
+	"build": {
+		// The path of your Dockerfile is relative to the devcontainer.json file.
+		"dockerfile": 'Dockerfile'
+	},
+	"containerEnv": {
+		// Set environment variables. This can also be done in the Dockerfile.
+		"GOOGLE_CLOUD_PROJECT": 'YOUR-PROJECT-ID',
+		"CLOUD_RUN_SERVICE": 'YOUR-CLOUD-RUN-SERVICE-NAME',
+		"ENV_VARIABLE": '${LOCAL_ENV_VARIABLE}',
+	}
+}

@@ -1,0 +1,20 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: YOUR-SERVICE-NAME
+spec:
+  template:
+    spec:
+      containers:
+        - image: us-central1-docker.pkg.dev/YOUR-PROJECT-ID/YOUR-GCR-ARTIFACTS-REPO/YOUR-SERVICE-NAME:latest
+          env:
+            # Use Secret Manager to set sensitive environment variables such as API keys
+            # https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets
+            # Add your secrets from the Secret Manager library
+            - name: YOUR_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: latest
+                  name: YOUR_SECRET
+          ports:
+            - containerPort: 8080
