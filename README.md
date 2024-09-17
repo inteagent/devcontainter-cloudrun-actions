@@ -1,4 +1,4 @@
-# Dev containers + Cloud Run + GitHub Actions
+# Dev Containers + Cloud Run + GitHub Actions
 
 
 ## Overview
